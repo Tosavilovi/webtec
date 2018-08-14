@@ -3,7 +3,7 @@ import sys
 import socket
 
 s = socket.socket()
-s.bind(('127.0.0.1', 1234))
+s.bind(("0.0.0.0", 2222))
 s.listen(10)
 
 while True:
@@ -11,7 +11,7 @@ while True:
     pid = os.fork()
     if pid == 0:
         data = conn.recv(1024)
-        if not data: break
+        if not data or data == 'close': break
         conn.send(data)
         conn.close()
         sys.exit()

@@ -2,7 +2,6 @@ import os
 import sys
 import socket
 
-#print("Simple web eho server")
 
 s = socket.socket()
 s.bind(("0.0.0.0", 2222))
